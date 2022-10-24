@@ -1,31 +1,29 @@
-//BOJ 7785 회사에 있는 사람
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
+//BOJ 11866 요세푸스문제0
+import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.Queue;
 
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+        int k = sc.nextInt();
+        Queue<Integer> q = new LinkedList<>();
 
-        HashMap<String, String> map = new HashMap<String, String>();
-        for (int i = 0; i < n; i++) {
-            String name = sc.next();
-            String stay = sc.next();
+        for (int i=1;i<=n;i++){
+            q.add(i);
+        }
 
-            if (map.containsKey(name)) {
-                map.remove(name);
-            } else {
-                map.put(name, stay);
+        System.out.print("<");
+        while (!q.isEmpty()) {
+            for (int i = 0; i < k-1 ; i++) {
+                q.add(q.poll());
+            }
+            System.out.print(q.poll());
+            if (!q.isEmpty()){
+                System.out.print(", ");
             }
         }
-
-        ArrayList<String> arrlist = new ArrayList<String>(map.keySet());
-        arrlist.sort(Collections.reverseOrder());
-
-        for(int i=0; i<arrlist.size();i++) {
-            System.out.println(arrlist.get(i));
-        }
+        System.out.print(">");
     }
 }
