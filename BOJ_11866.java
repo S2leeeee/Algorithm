@@ -1,4 +1,4 @@
-//BOJ 11866 요세푸스문제0
+//BOJ 11866 요세푸스 문제 0
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Queue;
